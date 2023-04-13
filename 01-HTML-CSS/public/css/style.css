@@ -1,0 +1,144 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Definelah ukuran container dibawah ini */
+.container-app {
+    margin-inline: 15%;
+}
+.container {
+    width: 100%;
+}
+
+/* Buatlah styling setiap section dibawah ini */
+.nav {
+    display: flex;
+    margin: 10px 0 30px 0;
+    height: 70px;
+    align-items: center;
+    justify-content: space-between;
+}
+nav img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.banner {
+    background-image: url("/public/img/gambar1.jpg");
+    height: 60px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+.headline {
+    margin-bottom: 30px;
+}
+.content__custom {
+    max-width: 300px;
+    margin: auto;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.profile {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.profile img {
+    display: block;
+    width: 100%;
+    border-radius: 5px;
+}
+.overlay {
+    position: absolute;
+    bottom: 0;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 100%;
+    transition: 0.5s ease;
+    opacity: 0;
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+}
+.overlay:hover {
+    opacity: 1;
+}
+.fa {
+    padding: 20px;
+    font-size: 25px;
+    width: 65px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+.fa-linkedin {
+    background: #007bb5;
+    color: white;
+}
+.fa-twitter {
+    background: #55acee;
+    color: white;
+}
+.fa-instagram {
+    background: linear-gradient(
+        45deg,
+        #f09433 0%,
+        #e6683c 25%,
+        #dc2743 50%,
+        #cc2366 75%,
+        #bc1888 100%
+    );
+    color: white;
+}
+.fa-github {
+    background: #252525;
+    color: white;
+}
+.text-type {
+    border-bottom: 5px solid orange;
+    max-width: 260px;
+    margin-bottom: 20px;
+}
+.text-type h3 {
+    line-height: 40px;
+}
+.blog-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 280px);
+    grid-gap: 25px;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+.card img {
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    margin-bottom: 20px;
+}
+.blog-content {
+    padding-inline: 30px;
+    margin-bottom: 20px;
+}
+.card h1 {
+    margin-bottom: 20px;
+}
+
+/* Buatlah breakpoint Resposnive design dibawah ini */
+@media only screen and (max-width: 412px) {
+    .fa {
+        font-size: 18px;
+        width: 58px;
+    }
+}
