@@ -19,7 +19,11 @@ const Article = () => {
             </p>
             {article && (
                 <div className="author">
-                    <img className="author-img" src="../author.jpg" />
+                    <img
+                        className="author-img"
+                        src="../author.jpg"
+                        alt="Author Image"
+                    />
                     <code>Posted by : Fariz Ghani Fuad 06/05/2023</code>
                 </div>
             )}
