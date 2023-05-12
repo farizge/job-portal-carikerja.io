@@ -22,7 +22,7 @@ const Article = () => {
                     <img
                         className="author-img"
                         src="../author.jpg"
-                        alt="Author Image"
+                        alt="Author"
                     />
                     <code>Posted by : Fariz Ghani Fuad 06/05/2023</code>
                 </div>

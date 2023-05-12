@@ -1,14 +1,11 @@
-import "./App.css";
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import Article from "./components/Article";
+import Tugas4 from "./Tugas4/Tugas4";
+import Tugas5 from "./Tugas5/Tugas5";
 
 function App() {
     return (
         <>
-            <Navbar />
-            <Hero />
-            <Article />
+            {/* <Tugas4 /> */}
+            <Tugas5 />
         </>
     );
 }
