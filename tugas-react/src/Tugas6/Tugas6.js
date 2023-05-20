@@ -59,7 +59,7 @@ const Tugas6 = () => {
                         score,
                     }
                 )
-                .then(() => {
+                .then((res) => {
                     setFetchStatus(true);
                 })
                 .catch((err) => {
@@ -75,7 +75,7 @@ const Tugas6 = () => {
                         score,
                     }
                 )
-                .then(() => setFetchStatus(true))
+                .then((res) => setFetchStatus(true))
                 .catch((err) => console.log(err));
         }
         setCurrentID(-1);
@@ -88,7 +88,8 @@ const Tugas6 = () => {
             .delete(
                 `https://backendexample.sanbercloud.com/api/student-scores/${idData}`
             )
-            .then(() => setFetchStatus(true));
+            .then(() => setFetchStatus(true))
+            .catch((err) => console.log(err));
     };
 
     const handleEdit = (e) => {
@@ -104,7 +105,9 @@ const Tugas6 = () => {
                     course: result.course,
                     score: result.score,
                 });
-            });
+                setCurrentID(idData);
+            })
+            .catch((err) => console.log(err));
     };
 
     const indexScore = (score) => {
@@ -206,8 +209,11 @@ const Tugas6 = () => {
                         name="score"
                         onChange={handleInput}
                     />
-                    <Button type="submit" color="purple">
-                        Submit
+                    <Button
+                        type="submit"
+                        color={currentID === -1 ? "purple" : "warning"}
+                    >
+                        {currentID === -1 ? "Submit" : "Update"}
                     </Button>
                 </form>
             </Card>
