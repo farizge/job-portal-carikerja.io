@@ -8,23 +8,13 @@ const Tugas7Form = () => {
     const { idData } = useParams();
     const { states, handler } = useContext(GlobalContext);
     const {
-        data,
-        setData,
         input,
         setInput,
-        fetchStatus,
-        setFetchStatus,
+
         currentID,
         setCurrentID,
     } = states;
-    const {
-        fetchData,
-        handleInput,
-        handleSubmit,
-        handleDelete,
-        handleEdit,
-        indexScore,
-    } = handler;
+    const { handleInput, handleSubmit } = handler;
 
     useEffect(() => {
         if (idData !== undefined) {
