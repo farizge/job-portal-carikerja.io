@@ -15,8 +15,11 @@ function App() {
                     <Routes>
                         <Route path="/" element={<Hero />} />
                         <Route path="/tugas7" element={<Tugas7List />} />
-                        <Route path="/create" element={<Tugas7Form />} />
-                        <Route path="/edit/:idData" element={<Tugas7Form />} />
+                        <Route path="tugas7/create" element={<Tugas7Form />} />
+                        <Route
+                            path="tugas7/edit/:idData"
+                            element={<Tugas7Form />}
+                        />
                     </Routes>
                 </GlobalProvider>
             </BrowserRouter>

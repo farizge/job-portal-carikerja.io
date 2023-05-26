@@ -60,7 +60,7 @@ export const GlobalProvider = (props) => {
                 )
                 .then((res) => {
                     setFetchStatus(true);
-                    navigate("/tugas7");
+                    navigate("tugas7");
                 })
                 .catch((err) => {
                     console.log(err);
@@ -77,7 +77,7 @@ export const GlobalProvider = (props) => {
                 )
                 .then((res) => {
                     setFetchStatus(true);
-                    navigate("/tugas7");
+                    navigate("tugas7");
                 })
                 .catch((err) => console.log(err));
         }
@@ -99,7 +99,7 @@ export const GlobalProvider = (props) => {
     //handle edit data
     const handleEdit = (e) => {
         const idData = parseInt(e.target.value);
-        navigate(`/edit/${idData}`);
+        navigate(`tugas7/edit/${idData}`);
     };
 
     //index score condition
