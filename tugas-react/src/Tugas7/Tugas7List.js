@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { Table, Button, TextInput, Label, Card } from "flowbite-react";
+import { Table } from "flowbite-react";
 import { TableHead } from "flowbite-react/lib/esm/components/Table/TableHead";
 import { TableHeadCell } from "flowbite-react/lib/esm/components/Table/TableHeadCell";
 import { TableBody } from "flowbite-react/lib/esm/components/Table/TableBody";
@@ -10,8 +10,24 @@ import { Link } from "react-router-dom";
 
 const Tugas7List = () => {
     const { states, handler } = useContext(GlobalContext);
-    const { data, fetchStatus, setFetchStatus } = states;
-    const { fetchData, handleDelete, handleEdit, indexScore } = handler;
+    const {
+        data,
+        setData,
+        input,
+        setInput,
+        fetchStatus,
+        setFetchStatus,
+        currentID,
+        setCurrentID,
+    } = states;
+    const {
+        fetchData,
+        handleInput,
+        handleSubmit,
+        handleDelete,
+        handleEdit,
+        indexScore,
+    } = handler;
 
     useEffect(() => {
         if (fetchStatus === true) {

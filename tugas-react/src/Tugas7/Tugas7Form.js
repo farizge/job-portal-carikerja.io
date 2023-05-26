@@ -7,13 +7,7 @@ import { useParams } from "react-router-dom";
 const Tugas7Form = () => {
     const { idData } = useParams();
     const { states, handler } = useContext(GlobalContext);
-    const {
-        input,
-        setInput,
-
-        currentID,
-        setCurrentID,
-    } = states;
+    const { input, setInput, currentID, setCurrentID } = states;
     const { handleInput, handleSubmit } = handler;
 
     useEffect(() => {
