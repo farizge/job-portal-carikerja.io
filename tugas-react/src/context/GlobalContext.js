@@ -99,6 +99,7 @@ export const GlobalProvider = (props) => {
     //handle edit data
     const handleEdit = (e) => {
         const idData = parseInt(e.target.value);
+        setCurrentID(idData);
         navigate(`tugas7/edit/${idData}`);
     };
 
