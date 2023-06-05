@@ -54,11 +54,7 @@ const AllJobList = () => {
         );
     });
 
-    return (
-        <div className="px-20">
-            <div className="list-grid">{allJobListElement}</div>
-        </div>
-    );
+    return <>{allJobListElement}</>;
 };
 
 export default AllJobList;

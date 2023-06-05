@@ -1,17 +1,20 @@
 import React from "react";
+import { FaBlackTie } from "react-icons/fa";
 
 const Login = () => {
     return (
-        <div data-theme="light" className="hero min-h-screen">
-            <div className="hero-content flex-col lg:flex-row-reverse">
-                <div className="text-center lg:text-left">
-                    <h1 className="text-5xl font-bold">Login Dulu</h1>
-                    <p className="py-6">
-                        Selamat datang di CariKerja.com Temukan 5000+ Pekerjaan
-                        Impianmu
-                    </p>
+        <div data-theme="light" className="grid place-content-center h-screen">
+            <div className="hero-content flex-col">
+                <div
+                    to="/"
+                    className="normal-case text-xl font-bold flex items-center"
+                >
+                    <i>
+                        <FaBlackTie className="text-primary mr-1" />
+                    </i>
+                    CariKerja.io
                 </div>
-                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl">
+                <div className="card lg:w-[420px] shadow-2xl">
                     <div className="card-body">
                         <div className="form-control">
                             <label className="label">

@@ -10,6 +10,8 @@ export const GlobalProvider = (props) => {
     //states
     const [data, setData] = useState([]);
     const [jobDetail, setJobDetail] = useState([]);
+    const [keyword, setKeyword] = useState("");
+    const [filtered, setFiltered] = useState(data);
 
     //fetching data
     const fetchData = () => {
@@ -24,8 +26,29 @@ export const GlobalProvider = (props) => {
         navigate(`job-detail/${idJob}`);
     };
 
-    const states = { data, setData, jobDetail, setJobDetail };
-    const func = { fetchData, seeDetail };
+    const handleSearch = () => {
+        setFiltered(
+            data.filter((job) => {
+                if (
+                    job.title.toLowerCase().match(keyword.toLocaleLowerCase())
+                ) {
+                    return job;
+                }
+            })
+        );
+    };
+
+    const states = {
+        data,
+        setData,
+        jobDetail,
+        setJobDetail,
+        keyword,
+        setKeyword,
+        filtered,
+        setFiltered,
+    };
+    const func = { fetchData, seeDetail, handleSearch };
 
     return (
         <GlobalContext.Provider value={{ states, func }}>

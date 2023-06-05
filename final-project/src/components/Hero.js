@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Hero = () => {
     return (
-        <div className="hero h-[60vh] lg:h-[75vh]">
+        <div className="hero h-[60vh] lg:h-[75vh] lg:px-24">
             <div className="hero-content flex-col justify-start lg:flex-row">
                 <div>
                     <h1 className="text-5xl font-bold">
