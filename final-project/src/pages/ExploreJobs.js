@@ -68,7 +68,7 @@ const ExplereJobs = () => {
                     {keyword === "" ? (
                         <AllJobList />
                     ) : filtered.length === 0 ? (
-                        <p className="text-center text-lg font-bold">
+                        <p className="text-center text-lg font-bold min-h-[40vh]">
                             Hasil Tidak Ditemukan
                         </p>
                     ) : (
