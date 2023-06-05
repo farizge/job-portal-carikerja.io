@@ -61,20 +61,16 @@ const FeatureList = () => {
     });
 
     return (
-        <div className="px-20">
-            <div className="flex justify-between items-center">
-                <h2 className="font-bold text-3xl mb-10">
-                    Featured<span className="text-primary">Jobs</span>
-                </h2>
-                <Link
-                    to="explore-jobs"
-                    className="text-primary flex items-center gap-2 font-medium"
-                >
+        <div className="">
+            <h2 className="font-bold text-3xl text-center my-5 lg:mb-10">
+                Featured<span className="text-primary">Jobs</span>
+            </h2>
+            <div className="list-grid">{jobListElement}</div>
+            <div className="grid place-content-center mt-5 lg:mt-10">
+                <Link to="explore-jobs" className="btn btn-secondary ">
                     See All Jobs
-                    <BsArrowRight />
                 </Link>
             </div>
-            <div className="list-grid">{jobListElement}</div>
         </div>
     );
 };

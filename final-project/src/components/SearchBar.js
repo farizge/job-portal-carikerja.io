@@ -5,7 +5,7 @@ const SearchBar = () => {
         <input
             type="text"
             placeholder="Cari Pekerjaan"
-            className="input input-secondary input-bordered w-full max-w-lg"
+            className="input input-secondary input-bordered lg:w-full"
         />
     );
 };

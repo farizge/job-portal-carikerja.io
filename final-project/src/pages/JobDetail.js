@@ -1,7 +1,8 @@
 import axios from "axios";
 import React, { useContext, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { GlobalContext } from "../context/GlobalContext";
+import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
 
 const JobDetail = () => {
     const { idJob } = useParams();
@@ -29,8 +30,17 @@ const JobDetail = () => {
     } = jobDetail;
 
     return (
-        <div className="card flex mx-32 my-10 shadow-xl p-20 justify-around lg:flex-row">
-            <div className="flex flex-col items-center mr-14">
+        <div className="card flex mx-2 shadow-xl p-5 justify-around lg:mx-36">
+            <Link
+                to="/explore-jobs"
+                className=" underline underline-offset-2 text-sm font-medium text-primary mb-7"
+            >
+                <div className="flex items-center gap-1">
+                    <HiOutlineArrowNarrowLeft />
+                    Back to Jobs
+                </div>
+            </Link>
+            <div className="flex flex-col items-center mb-5">
                 <img src={company_image_url} className="max-w-[200px] mb-3" />
                 <p className="font-bold text-xl">{company_name}</p>
                 <p>{company_city}</p>

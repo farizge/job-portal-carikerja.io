@@ -1,12 +1,11 @@
 import React from "react";
-import SearchBar from "./SearchBar";
 import ilustrasi from "../assets/ilustrasi.png";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
     return (
-        <div className="hero min-h-[75vh] bg-base-100">
-            <div className="hero-content flex-col items-center justify-center lg:flex-row">
+        <div className="hero h-[60vh] lg:h-[75vh]">
+            <div className="hero-content flex-col justify-start lg:flex-row">
                 <div>
                     <h1 className="text-5xl font-bold">
                         Temukan Pekerjaan Impianmu
@@ -20,12 +19,6 @@ const Hero = () => {
                         className="btn btn-primary rounded mr-2"
                     >
                         Explore Jobs
-                    </Link>
-                    <Link
-                        to="login"
-                        className="btn btn-outline btn-secondary rounded"
-                    >
-                        Login
                     </Link>
                 </div>
                 <img

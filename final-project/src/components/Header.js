@@ -4,27 +4,29 @@ import { FaBlackTie } from "react-icons/fa";
 
 const Header = () => {
     return (
-        <div className="navbar bg-base-100 px-20 pt-5">
-            <div className="flex-1">
+        <div className="navbar lg:px-28">
+            <div className="navbar-start">
                 <NavLink
                     to="/"
-                    className="btn btn-ghost normal-case text-xl font-bold"
+                    className="normal-case text-xl font-bold flex items-center"
                 >
-                    <i className="text-primary mr-1">
-                        <FaBlackTie />
+                    <i>
+                        <FaBlackTie className="text-primary mr-1" />
                     </i>
                     CariKerja.io
                 </NavLink>
             </div>
-            <div className="flex-none">
-                <ul className="menu menu-horizontal px-1">
-                    <li className="mr-5 font-semibold">
-                        <NavLink to="explore-jobs">Explore Jobs</NavLink>
-                    </li>
-                    <li className="btn btn-secondary rounded-lg">
-                        <NavLink to="login">Login</NavLink>
-                    </li>
-                </ul>
+
+            <div className="navbar-end">
+                <NavLink
+                    to="explore-jobs"
+                    className="font-medium hidden lg:block mr-5"
+                >
+                    Explore Jobs
+                </NavLink>
+                <NavLink to="login" className="btn btn-secondary">
+                    Login
+                </NavLink>
             </div>
         </div>
     );

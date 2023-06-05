@@ -5,10 +5,10 @@ import AllJobList from "../components/AllJobList";
 const ExplereJobs = () => {
     return (
         <div>
-            <div className="hero min-h-[20vh] bg-base-100 pt-10 mb-10">
+            <div className="hero min-h-[25vh] bg-primary py-10 mb-5">
                 <div className="flex flex-col items-center gap-10">
                     <div>
-                        <h1 className="text-4xl font-bold">
+                        <h1 className="text-3xl font-bold text-center text-neutral-content">
                             Temukan Pekerjaan Impianmu
                         </h1>
                     </div>
