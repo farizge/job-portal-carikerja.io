@@ -7,16 +7,16 @@ const Hero = () => {
         <div className="hero h-[60vh] lg:h-[75vh] lg:px-24">
             <div className="hero-content flex-col justify-start lg:flex-row">
                 <div>
-                    <h1 className="text-5xl font-bold">
+                    <h1 className="text-6xl font-extrabold font-geologica animate-text bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
                         Temukan Pekerjaan Impianmu
                     </h1>
-                    <p className="py-6">
+                    <p className="py-6 font-medium text-lg">
                         Platform terbaik untuk mencari pekerjaan yang kamu
                         impikan
                     </p>
                     <Link
                         to="explore-jobs"
-                        className="btn btn-primary rounded mr-2"
+                        className="btn btn-outline btn-primary rounded border-2"
                     >
                         Explore Jobs
                     </Link>
@@ -24,7 +24,7 @@ const Hero = () => {
                 <img
                     src={ilustrasi}
                     alt="ilustrasi"
-                    className="w-2/4 overflow-auto hidden lg:block"
+                    className="w-2/4 hidden lg:block"
                 />
             </div>
         </div>

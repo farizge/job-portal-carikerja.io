@@ -4,7 +4,7 @@ import { FaBlackTie } from "react-icons/fa";
 
 const Header = () => {
     return (
-        <div className="navbar lg:px-28">
+        <div className="navbar px-4 lg:px-28">
             <div className="navbar-start">
                 <NavLink
                     to="/"
@@ -20,7 +20,7 @@ const Header = () => {
             <div className="navbar-end">
                 <NavLink
                     to="explore-jobs"
-                    className="font-medium hidden lg:block mr-5"
+                    className="font-semibold hidden lg:block mr-5"
                 >
                     Explore Jobs
                 </NavLink>

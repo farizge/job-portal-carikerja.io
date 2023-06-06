@@ -7,6 +7,7 @@ import JobDetail from "./pages/JobDetail";
 import { GlobalProvider } from "./context/GlobalContext";
 import ExplereJobs from "./pages/ExploreJobs";
 import ErrorPage from "./pages/ErrorPage";
+import Dashboard from "./layouts/Dashboard";
 
 const App = () => {
     return (
@@ -27,6 +28,10 @@ const App = () => {
                         </Route>
                         <Route path="*" element={<ErrorPage />} />
                         <Route path="login" element={<Login />} />
+                        <Route
+                            path="/dashboard"
+                            element={<Dashboard />}
+                        ></Route>
                     </Routes>
                 </GlobalProvider>
             </BrowserRouter>

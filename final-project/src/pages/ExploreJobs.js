@@ -53,7 +53,7 @@ const ExplereJobs = () => {
 
     return (
         <div>
-            <div className="hero min-h-[25vh] bg-primary py-10 mb-5">
+            <div className="hero min-h-[25vh] animate-text bg-gradient-to-bl from-primary to-secondary py-10 mb-5">
                 <div className="flex flex-col items-center gap-10">
                     <div>
                         <h1 className="text-3xl font-bold text-center text-neutral-content">
