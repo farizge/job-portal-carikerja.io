@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
-import SearchBar from "../components/SearchBar";
 import AllJobList from "../components/AllJobList";
 import { GlobalContext } from "../context/GlobalContext";
+import { LuEdit } from "react-icons/lu";
+import { MdDelete } from "react-icons/md";
 
-const ExplereJobs = () => {
+const DashboardIndex = () => {
     const { states, func } = useContext(GlobalContext);
     const { filtered, keyword } = states;
-    const { seeDetail } = func;
+    const { seeDetailDashboardMode } = func;
 
     const filteredElements = filtered.map((job) => {
         return (
@@ -38,13 +39,29 @@ const ExplereJobs = () => {
                     </p>
                     <p className=" text-xs mb-7">{`Rp.${job.salary_min} - Rp${job.salary_max}`}</p>
                     <div className="card-actions justify-end">
-                        <button
-                            value={job.id}
-                            className="btn btn-primary btn-sm"
-                            onClick={seeDetail}
-                        >
-                            Details
-                        </button>
+                        <div className="join flex gap-1">
+                            <button
+                                value={job.id}
+                                className="btn join-item btn-primary btn-sm"
+                                onClick={seeDetailDashboardMode}
+                            >
+                                Details
+                            </button>
+                            <button
+                                value={job.id}
+                                className="btn join-item btn-warning btn-sm"
+                                onClick={""}
+                            >
+                                <LuEdit />
+                            </button>
+                            <button
+                                value={job.id}
+                                className="btn join-item btn-error btn-sm"
+                                onClick={""}
+                            >
+                                <MdDelete />
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -52,32 +69,18 @@ const ExplereJobs = () => {
     });
 
     return (
-        <div>
-            <div className="hero min-h-[25vh] animate-text bg-gradient-to-bl from-primary to-secondary py-10 mb-5">
-                <div className="flex flex-col items-center gap-10">
-                    <div>
-                        <h1 className="text-3xl font-bold text-center text-neutral-content font-geologica">
-                            Temukan Pekerjaan Impianmu
-                        </h1>
-                    </div>
-                    <SearchBar color="input-secondary" />
-                </div>
-            </div>
-            <div className="px-20">
-                <div className="list-grid">
-                    {keyword === "" ? (
-                        <AllJobList />
-                    ) : filtered.length === 0 ? (
-                        <p className="text-center text-lg font-bold min-h-[40vh]">
-                            Hasil Tidak Ditemukan
-                        </p>
-                    ) : (
-                        filteredElements
-                    )}
-                </div>
-            </div>
+        <div className="list-job">
+            {keyword === "" ? (
+                <AllJobList dashboardMode />
+            ) : filtered.length === 0 ? (
+                <p className="text-center text-lg font-bold min-h-[40vh]">
+                    Hasil Tidak Ditemukan
+                </p>
+            ) : (
+                filteredElements
+            )}
         </div>
     );
 };
 
-export default ExplereJobs;
+export default DashboardIndex;

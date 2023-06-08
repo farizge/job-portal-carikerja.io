@@ -8,6 +8,9 @@ import { GlobalProvider } from "./context/GlobalContext";
 import ExplereJobs from "./pages/ExploreJobs";
 import ErrorPage from "./pages/ErrorPage";
 import Dashboard from "./layouts/Dashboard";
+import DashboardIndex from "./pages/DashboardIndex";
+import DashboardProfile from "./pages/DashboardProfile";
+import JobForm from "./pages/JobForm";
 
 const App = () => {
     return (
@@ -28,10 +31,22 @@ const App = () => {
                         </Route>
                         <Route path="*" element={<ErrorPage />} />
                         <Route path="login" element={<Login />} />
-                        <Route
-                            path="/dashboard"
-                            element={<Dashboard />}
-                        ></Route>
+                        <Route path="/dashboard" element={<Dashboard />}>
+                            <Route index element={<DashboardIndex />} />
+                            <Route
+                                path="profile"
+                                element={<DashboardProfile />}
+                            />
+                            <Route path="post-job" element={<JobForm />} />
+                            <Route
+                                path="edit-job/:idJob"
+                                element={<JobForm />}
+                            />
+                            <Route
+                                path="job-detail/:idJob"
+                                element={<JobDetail />}
+                            />
+                        </Route>
                     </Routes>
                 </GlobalProvider>
             </BrowserRouter>

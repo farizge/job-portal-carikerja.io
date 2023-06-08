@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { FaBlackTie } from "react-icons/fa";
+import { GlobalContext } from "../context/GlobalContext";
 
 const Header = () => {
+    const { states } = useContext(GlobalContext);
+    const { isLoggedIn } = states;
+
     return (
         <div className="navbar px-4 lg:px-28">
             <div className="navbar-start">
@@ -24,9 +28,18 @@ const Header = () => {
                 >
                     Explore Jobs
                 </NavLink>
-                <NavLink to="login" className="btn btn-secondary">
-                    Login
-                </NavLink>
+                {!isLoggedIn ? (
+                    <NavLink to="login" className="btn btn-secondary">
+                        Login
+                    </NavLink>
+                ) : (
+                    <NavLink
+                        to="dashboard"
+                        className="btn btn-secondary btn-outline"
+                    >
+                        Dashboard
+                    </NavLink>
+                )}
             </div>
         </div>
     );

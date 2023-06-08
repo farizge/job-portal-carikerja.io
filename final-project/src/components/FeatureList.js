@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { GlobalContext } from "../context/GlobalContext";
 import { Link } from "react-router-dom";
-import { BsArrowRight } from "react-icons/bs";
 
 const FeatureList = () => {
     const { states, func } = useContext(GlobalContext);

@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useContext, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { GlobalContext } from "../context/GlobalContext";
 import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
 
@@ -8,6 +8,7 @@ const JobDetail = () => {
     const { idJob } = useParams();
     const { states } = useContext(GlobalContext);
     const { jobDetail, setJobDetail } = states;
+    const navigate = useNavigate();
     useEffect(() => {
         axios
             .get(`https://dev-example.sanbercloud.com/api/job-vacancy/${idJob}`)
@@ -31,15 +32,15 @@ const JobDetail = () => {
 
     return (
         <div className="card flex mx-2 shadow-xl p-5 justify-around lg:mx-36">
-            <Link
-                to="/explore-jobs"
+            <div
+                onClick={() => navigate(-1)}
                 className=" underline underline-offset-2 text-sm font-medium text-primary mb-7"
             >
-                <div className="flex items-center gap-1">
+                <div className="flex items-center gap-1 font-bold">
                     <HiOutlineArrowNarrowLeft />
-                    Back to Jobs
+                    Back
                 </div>
-            </Link>
+            </div>
             <div className="flex flex-col items-center mb-5">
                 <img src={company_image_url} className="max-w-[200px] mb-3" />
                 <p className="font-bold text-xl">{company_name}</p>

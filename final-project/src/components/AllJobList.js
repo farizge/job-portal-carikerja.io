@@ -1,10 +1,12 @@
 import React, { useContext, useEffect } from "react";
 import { GlobalContext } from "../context/GlobalContext";
+import { LuEdit } from "react-icons/lu";
+import { MdDelete } from "react-icons/md";
 
-const AllJobList = () => {
+const AllJobList = ({ dashboardMode }) => {
     const { states, func } = useContext(GlobalContext);
     const { data } = states;
-    const { fetchData, seeDetail } = func;
+    const { fetchData, seeDetail, seeDetailDashboardMode } = func;
 
     useEffect(() => {
         fetchData();
@@ -41,13 +43,40 @@ const AllJobList = () => {
                     </p>
                     <p className=" text-xs mb-7">{`Rp.${job.salary_min} - Rp${job.salary_max}`}</p>
                     <div className="card-actions justify-end">
-                        <button
-                            value={job.id}
-                            className="btn btn-primary btn-sm"
-                            onClick={seeDetail}
-                        >
-                            Details
-                        </button>
+                        <div className={dashboardMode && "hidden"}>
+                            <button
+                                value={job.id}
+                                className="btn btn-primary btn-sm"
+                                onClick={seeDetail}
+                            >
+                                Details
+                            </button>
+                        </div>
+                        <div className={!dashboardMode && "hidden"}>
+                            <div className="join flex gap-1">
+                                <button
+                                    value={job.id}
+                                    className="btn join-item btn-primary btn-sm"
+                                    onClick={seeDetailDashboardMode}
+                                >
+                                    Details
+                                </button>
+                                <button
+                                    value={job.id}
+                                    className="btn join-item btn-warning btn-sm"
+                                    onClick={seeDetail}
+                                >
+                                    <LuEdit />
+                                </button>
+                                <button
+                                    value={job.id}
+                                    className="btn join-item btn-error btn-sm"
+                                    onClick={seeDetail}
+                                >
+                                    <MdDelete />
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

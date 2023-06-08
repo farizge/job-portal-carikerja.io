@@ -12,6 +12,7 @@ export const GlobalProvider = (props) => {
     const [jobDetail, setJobDetail] = useState([]);
     const [keyword, setKeyword] = useState("");
     const [filtered, setFiltered] = useState(data);
+    const [isLoggedIn, setIsLoggedIn] = useState(true); //masih hardcoded di state
 
     //fetching data
     const fetchData = () => {
@@ -24,6 +25,10 @@ export const GlobalProvider = (props) => {
     const seeDetail = (e) => {
         let idJob = parseInt(e.target.value);
         navigate(`job-detail/${idJob}`);
+    };
+    const seeDetailDashboardMode = (e) => {
+        let idJob = parseInt(e.target.value);
+        navigate(`dashboard/job-detail/${idJob}`);
     };
 
     const handleSearch = () => {
@@ -47,8 +52,10 @@ export const GlobalProvider = (props) => {
         setKeyword,
         filtered,
         setFiltered,
+        isLoggedIn,
+        setIsLoggedIn,
     };
-    const func = { fetchData, seeDetail, handleSearch };
+    const func = { fetchData, seeDetail, seeDetailDashboardMode, handleSearch };
 
     return (
         <GlobalContext.Provider value={{ states, func }}>
