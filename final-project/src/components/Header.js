@@ -24,7 +24,7 @@ const Header = () => {
             <div className="navbar-end">
                 <NavLink
                     to="explore-jobs"
-                    className="font-semibold hidden lg:block mr-5"
+                    className="font-semibold hidden hover:text-primary lg:block mr-5"
                 >
                     Explore Jobs
                 </NavLink>
