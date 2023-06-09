@@ -34,9 +34,9 @@ const JobDetail = () => {
         <div className="card flex mx-2 shadow-xl p-5 justify-around lg:mx-36">
             <div
                 onClick={() => navigate(-1)}
-                className=" underline underline-offset-2 text-sm font-medium text-primary mb-7"
+                className=" underline underline-offset-2 text-md font-medium text-secondary mb-7"
             >
-                <div className="flex items-center gap-1 font-bold">
+                <div className="flex items-center gap-1 font-bold cursor-pointer">
                     <HiOutlineArrowNarrowLeft />
                     Back
                 </div>
@@ -57,7 +57,7 @@ const JobDetail = () => {
                 <p className="font-medium">Qualification</p>
                 <p>{job_qualification}</p>
                 <p className="font-medium">Salary</p>
-                <p className="">{`Rp.${salary_min} - Rp${salary_max}`}</p>
+                <p className="">{`Rp.${salary_min} - Rp.${salary_max}`}</p>
             </div>
         </div>
     );

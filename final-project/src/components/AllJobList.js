@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { GlobalContext } from "../context/GlobalContext";
 import { LuEdit } from "react-icons/lu";
-import { MdDelete } from "react-icons/md";
+import { AiOutlineDelete } from "react-icons/ai";
 
 const AllJobList = ({ dashboardMode }) => {
     const { states, func } = useContext(GlobalContext);
@@ -41,7 +41,7 @@ const AllJobList = ({ dashboardMode }) => {
                             ? job.job_description.substr(0, 60) + "..."
                             : job.job_description}
                     </p>
-                    <p className=" text-xs mb-7">{`Rp.${job.salary_min} - Rp${job.salary_max}`}</p>
+                    <p className=" text-xs mb-7">{`Rp.${job.salary_min} - Rp.${job.salary_max}`}</p>
                     <div className="card-actions justify-end">
                         <div className={dashboardMode && "hidden"}>
                             <button
@@ -64,16 +64,16 @@ const AllJobList = ({ dashboardMode }) => {
                                 <button
                                     value={job.id}
                                     className="btn join-item btn-warning btn-sm"
-                                    onClick={seeDetail}
+                                    onClick={seeDetailDashboardMode}
                                 >
                                     <LuEdit />
                                 </button>
                                 <button
                                     value={job.id}
                                     className="btn join-item btn-error btn-sm"
-                                    onClick={seeDetail}
+                                    onClick={seeDetailDashboardMode}
                                 >
-                                    <MdDelete />
+                                    <AiOutlineDelete />
                                 </button>
                             </div>
                         </div>

@@ -11,11 +11,13 @@ import Dashboard from "./layouts/Dashboard";
 import DashboardIndex from "./pages/DashboardIndex";
 import DashboardProfile from "./pages/DashboardProfile";
 import JobForm from "./pages/JobForm";
+import ScrollToTop from "./components/ScrollToTop";
 
 const App = () => {
     return (
         <>
             <BrowserRouter>
+                <ScrollToTop />
                 <GlobalProvider>
                     <Routes>
                         <Route path="/" element={<Layout />}>

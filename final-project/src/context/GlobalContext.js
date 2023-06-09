@@ -13,6 +13,20 @@ export const GlobalProvider = (props) => {
     const [keyword, setKeyword] = useState("");
     const [filtered, setFiltered] = useState(data);
     const [isLoggedIn, setIsLoggedIn] = useState(true); //masih hardcoded di state
+    const [input, setInput] = useState({
+        company_city: "",
+        company_image_url: "",
+        company_name: "",
+        job_description: "",
+        job_qualification: "",
+        job_status: 1,
+        job_tenure: "Fulltime",
+        job_type: "On-Site",
+        salary_max: "",
+        salary_min: "",
+        title: "",
+    });
+    const [currentID, setCurrentID] = useState(-1);
 
     //fetching data
     const fetchData = () => {
@@ -43,6 +57,14 @@ export const GlobalProvider = (props) => {
         );
     };
 
+    const handleInput = (e) => {
+        const { name, value, checked } = e.target;
+        const newValue = name === "job_status" ? (checked ? 1 : 0) : value;
+        setInput((prev) => ({
+            ...prev,
+            [name]: newValue,
+        }));
+    };
     const states = {
         data,
         setData,
@@ -54,8 +76,16 @@ export const GlobalProvider = (props) => {
         setFiltered,
         isLoggedIn,
         setIsLoggedIn,
+        input,
+        setInput,
     };
-    const func = { fetchData, seeDetail, seeDetailDashboardMode, handleSearch };
+    const func = {
+        fetchData,
+        seeDetail,
+        seeDetailDashboardMode,
+        handleSearch,
+        handleInput,
+    };
 
     return (
         <GlobalContext.Provider value={{ states, func }}>

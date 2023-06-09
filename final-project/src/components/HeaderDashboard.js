@@ -39,12 +39,11 @@ const HeaderDashboard = () => {
                             to="post-job"
                             className="btn animate-text bg-gradient-to-r from-primary to-secondary border-none rounded-lg text-center w-[80%]"
                         >
-                            Post Job
+                            Add Job
                         </NavLink>
 
                         <NavLink
                             to="/dashboard"
-                            active
                             className="hover:text-secondary flex items-center gap-2"
                         >
                             <i className="text-xl">
