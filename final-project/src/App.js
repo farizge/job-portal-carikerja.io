@@ -12,6 +12,8 @@ import DashboardIndex from "./pages/DashboardIndex";
 import DashboardProfile from "./pages/DashboardProfile";
 import JobForm from "./pages/JobForm";
 import ScrollToTop from "./components/ScrollToTop";
+import Register from "./pages/Register";
+import LoginRoute from "./layouts/LoginRoute";
 
 const App = () => {
     return (
@@ -31,8 +33,10 @@ const App = () => {
                                 element={<JobDetail />}
                             />
                         </Route>
-                        <Route path="*" element={<ErrorPage />} />
-                        <Route path="login" element={<Login />} />
+                        <Route element={<LoginRoute />}>
+                            <Route path="login" element={<Login />} />
+                            <Route path="register" element={<Register />} />
+                        </Route>
                         <Route path="/dashboard" element={<Dashboard />}>
                             <Route index element={<DashboardIndex />} />
                             <Route
@@ -49,6 +53,7 @@ const App = () => {
                                 element={<JobDetail />}
                             />
                         </Route>
+                        <Route path="*" element={<ErrorPage />} />
                     </Routes>
                 </GlobalProvider>
             </BrowserRouter>

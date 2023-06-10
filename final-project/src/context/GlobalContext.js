@@ -1,6 +1,7 @@
 import { createContext, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
 export const GlobalContext = createContext();
 
@@ -12,7 +13,6 @@ export const GlobalProvider = (props) => {
     const [jobDetail, setJobDetail] = useState([]);
     const [keyword, setKeyword] = useState("");
     const [filtered, setFiltered] = useState(data);
-    const [isLoggedIn, setIsLoggedIn] = useState(true); //masih hardcoded di state
     const [input, setInput] = useState({
         company_city: "",
         company_image_url: "",
@@ -32,7 +32,8 @@ export const GlobalProvider = (props) => {
     const fetchData = () => {
         axios
             .get("https://dev-example.sanbercloud.com/api/job-vacancy")
-            .then((res) => setData(res.data.data));
+            .then((res) => setData(res.data.data))
+            .catch((err) => console.log(err));
     };
 
     // handle see details button
@@ -74,8 +75,7 @@ export const GlobalProvider = (props) => {
         setKeyword,
         filtered,
         setFiltered,
-        isLoggedIn,
-        setIsLoggedIn,
+
         input,
         setInput,
     };

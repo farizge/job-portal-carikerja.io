@@ -1,11 +1,17 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { BsViewList } from "react-icons/bs";
 import { FiUser } from "react-icons/fi";
 import { MdLogout } from "react-icons/md";
 import { RxHome } from "react-icons/rx";
+import Cookies from "js-cookie";
 
 const Sidebar = () => {
+    const navigate = useNavigate();
+    const logout = () => {
+        Cookies.remove("token");
+        navigate("/");
+    };
     return (
         <div className="menu pl-10 pt-10 min-h-full flex flex-col gap-10 font-semibold">
             <NavLink
@@ -33,15 +39,16 @@ const Sidebar = () => {
                 </i>
                 <span>Profile</span>
             </NavLink>
-            <NavLink
+            <div
                 to="profile"
-                className="hover:text-secondary flex items-center gap-2 mt-10"
+                className="hover:text-secondary flex items-center gap-2 mt-10 cursor-pointer"
+                onClick={logout}
             >
                 <i className="text-xl">
                     <MdLogout />
                 </i>
                 <span>Logout</span>
-            </NavLink>
+            </div>
             <NavLink
                 to="/"
                 className="hover:text-secondary flex items-center gap-2 mt-10"

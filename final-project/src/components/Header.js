@@ -1,12 +1,16 @@
-import React, { useContext } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import { FaBlackTie } from "react-icons/fa";
-import { GlobalContext } from "../context/GlobalContext";
+import Cookies from "js-cookie";
 
 const Header = () => {
-    const { states } = useContext(GlobalContext);
-    const { isLoggedIn } = states;
-
+    const isLoggedIn = () => {
+        if (Cookies.get("token") !== undefined) {
+            return true;
+        } else {
+            return false;
+        }
+    };
     return (
         <div className="navbar px-4 lg:px-28">
             <div className="navbar-start">
@@ -28,7 +32,7 @@ const Header = () => {
                 >
                     Explore Jobs
                 </NavLink>
-                {!isLoggedIn ? (
+                {!isLoggedIn() ? (
                     <NavLink to="login" className="btn btn-secondary">
                         Login
                     </NavLink>

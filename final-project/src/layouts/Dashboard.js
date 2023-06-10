@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import HeaderDashboard from "../components/HeaderDashboard";
 import Sidebar from "../components/Sidebar";
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import Footer from "../components/Footer";
+import Cookies from "js-cookie";
 
 const Dashboard = () => {
+    if (Cookies.get("token") === undefined) {
+        return <Navigate to="/login" />;
+    }
     return (
         <div data-theme="light">
             <HeaderDashboard />

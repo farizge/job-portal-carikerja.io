@@ -14,7 +14,8 @@ const JobDetail = () => {
             .get(`https://dev-example.sanbercloud.com/api/job-vacancy/${idJob}`)
             .then((res) => {
                 setJobDetail(res.data);
-            });
+            })
+            .catch((err) => console.log(err));
     }, []);
 
     const {
