@@ -23,7 +23,7 @@ const JobForm = () => {
     } = input;
 
     useEffect(() => {
-        if (idJob !== -1) {
+        if (idJob !== undefined) {
             axios
                 .get(
                     `https://dev-example.sanbercloud.com/api/job-vacancy/${idJob}`
@@ -46,7 +46,7 @@ const JobForm = () => {
                 })
                 .catch((err) => console.log(err));
         }
-    }, []);
+    }, [currentID]);
 
     return (
         <form
