@@ -8,29 +8,14 @@ import Cookies from "js-cookie";
 import { GlobalContext } from "../context/GlobalContext";
 
 const Sidebar = () => {
-    const { states } = useContext(GlobalContext);
-    const { setCurrentID, setInput } = states;
+    const { func } = useContext(GlobalContext);
+    const { clickAdd } = func;
     const navigate = useNavigate();
     const logout = () => {
         Cookies.remove("token");
         navigate("/");
     };
-    const clickAdd = () => {
-        setCurrentID(-1);
-        setInput({
-            company_city: "",
-            company_image_url: "",
-            company_name: "",
-            job_description: "",
-            job_qualification: "",
-            job_status: 1,
-            job_tenure: "Fulltime",
-            job_type: "On-Site",
-            salary_max: "",
-            salary_min: "",
-            title: "",
-        });
-    };
+
     return (
         <div className="menu pl-10 pt-10 min-h-full flex flex-col gap-10 font-semibold">
             <NavLink

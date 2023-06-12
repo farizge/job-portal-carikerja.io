@@ -11,29 +11,14 @@ import { GlobalContext } from "../context/GlobalContext";
 import Cookies from "js-cookie";
 
 const HeaderDashboard = () => {
-    const { states } = useContext(GlobalContext);
-    const { setCurrentID, setInput } = states;
+    const { func } = useContext(GlobalContext);
+    const { clickAdd } = func;
     const navigate = useNavigate();
     const logout = () => {
         Cookies.remove("token");
         navigate("/");
     };
-    const clickAdd = () => {
-        setCurrentID(-1);
-        setInput({
-            company_city: "",
-            company_image_url: "",
-            company_name: "",
-            job_description: "",
-            job_qualification: "",
-            job_status: 1,
-            job_tenure: "Fulltime",
-            job_type: "On-Site",
-            salary_max: "",
-            salary_min: "",
-            title: "",
-        });
-    };
+
     return (
         <div className="navbar px-4 lg:pr-20 lg:h-[10vh]">
             <div className="navbar-start">

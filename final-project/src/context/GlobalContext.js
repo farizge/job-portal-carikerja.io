@@ -119,6 +119,23 @@ export const GlobalProvider = (props) => {
         });
     };
 
+    const clickAdd = () => {
+        setCurrentID(-1);
+        setInput({
+            company_city: "",
+            company_image_url: "",
+            company_name: "",
+            job_description: "",
+            job_qualification: "",
+            job_status: 1,
+            job_tenure: "Fulltime",
+            job_type: "On-Site",
+            salary_max: "",
+            salary_min: "",
+            title: "",
+        });
+    };
+
     const editJob = (e) => {
         let idJob = parseInt(e.target.value);
         // console.log(idJob);
@@ -163,6 +180,7 @@ export const GlobalProvider = (props) => {
         deleteJob,
         addJob,
         editJob,
+        clickAdd,
     };
 
     return (
