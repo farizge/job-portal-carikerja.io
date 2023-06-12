@@ -1,16 +1,17 @@
 import React, { useContext, useEffect } from "react";
 import { GlobalContext } from "../context/GlobalContext";
-import { LuEdit } from "react-icons/lu";
-import { AiOutlineDelete } from "react-icons/ai";
 
 const AllJobList = ({ dashboardMode }) => {
     const { states, func } = useContext(GlobalContext);
-    const { data } = states;
-    const { fetchData, seeDetail, seeDetailDashboardMode } = func;
+    const { data, fetchStatus, setFetchStatus } = states;
+    const { fetchData, seeDetail, seeDetailDashboardMode, deleteJob, editJob } =
+        func;
 
     useEffect(() => {
-        fetchData();
-    }, []);
+        if (fetchStatus === true) {
+            fetchData();
+        }
+    }, [fetchStatus, setFetchStatus]);
 
     //tampilkan data
     const allJobListElement = data.map((job) => {
@@ -43,7 +44,7 @@ const AllJobList = ({ dashboardMode }) => {
                     </p>
                     <p className=" text-xs mb-7">{`Rp.${job.salary_min} - Rp.${job.salary_max}`}</p>
                     <div className="card-actions justify-end">
-                        <div className={dashboardMode && "hidden"}>
+                        <div className={dashboardMode ? "hidden" : ""}>
                             <button
                                 value={job.id}
                                 className="btn btn-primary btn-sm"
@@ -52,7 +53,7 @@ const AllJobList = ({ dashboardMode }) => {
                                 Details
                             </button>
                         </div>
-                        <div className={!dashboardMode && "hidden"}>
+                        <div className={!dashboardMode ? "hidden" : ""}>
                             <div className="join flex gap-1">
                                 <button
                                     value={job.id}
@@ -64,16 +65,16 @@ const AllJobList = ({ dashboardMode }) => {
                                 <button
                                     value={job.id}
                                     className="btn join-item btn-warning btn-sm"
-                                    onClick={seeDetailDashboardMode}
+                                    onClick={editJob}
                                 >
-                                    <LuEdit />
+                                    Edit
                                 </button>
                                 <button
                                     value={job.id}
                                     className="btn join-item btn-error btn-sm"
-                                    onClick={seeDetailDashboardMode}
+                                    onClick={deleteJob}
                                 >
-                                    <AiOutlineDelete />
+                                    Delete
                                 </button>
                             </div>
                         </div>

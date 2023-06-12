@@ -1,16 +1,35 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { BsViewList } from "react-icons/bs";
 import { FiUser } from "react-icons/fi";
 import { MdLogout } from "react-icons/md";
 import { RxHome } from "react-icons/rx";
 import Cookies from "js-cookie";
+import { GlobalContext } from "../context/GlobalContext";
 
 const Sidebar = () => {
+    const { states } = useContext(GlobalContext);
+    const { setCurrentID, setInput } = states;
     const navigate = useNavigate();
     const logout = () => {
         Cookies.remove("token");
         navigate("/");
+    };
+    const clickAdd = () => {
+        setCurrentID(-1);
+        setInput({
+            company_city: "",
+            company_image_url: "",
+            company_name: "",
+            job_description: "",
+            job_qualification: "",
+            job_status: 1,
+            job_tenure: "Fulltime",
+            job_type: "On-Site",
+            salary_max: "",
+            salary_min: "",
+            title: "",
+        });
     };
     return (
         <div className="menu pl-10 pt-10 min-h-full flex flex-col gap-10 font-semibold">
@@ -18,7 +37,7 @@ const Sidebar = () => {
                 to="post-job"
                 className="btn animate-text bg-gradient-to-r from-primary to-secondary border-none rounded-lg text-center w-[80%]"
             >
-                Add Job Vacancy
+                <button onClick={clickAdd}>Add Job Vacancy</button>
             </NavLink>
 
             <NavLink

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { FaBlackTie } from "react-icons/fa";
 import { HiMenuAlt2 } from "react-icons/hi";
 import { BsViewList } from "react-icons/bs";
@@ -8,10 +8,32 @@ import { MdLogout } from "react-icons/md";
 import { RxHome } from "react-icons/rx";
 import SearchBar from "./SearchBar";
 import { GlobalContext } from "../context/GlobalContext";
+import Cookies from "js-cookie";
 
 const HeaderDashboard = () => {
     const { states } = useContext(GlobalContext);
-    const { setIsLoggedIn } = states;
+    const { setCurrentID, setInput } = states;
+    const navigate = useNavigate();
+    const logout = () => {
+        Cookies.remove("token");
+        navigate("/");
+    };
+    const clickAdd = () => {
+        setCurrentID(-1);
+        setInput({
+            company_city: "",
+            company_image_url: "",
+            company_name: "",
+            job_description: "",
+            job_qualification: "",
+            job_status: 1,
+            job_tenure: "Fulltime",
+            job_type: "On-Site",
+            salary_max: "",
+            salary_min: "",
+            title: "",
+        });
+    };
     return (
         <div className="navbar px-4 lg:pr-20 lg:h-[10vh]">
             <div className="navbar-start">
@@ -39,7 +61,7 @@ const HeaderDashboard = () => {
                             to="post-job"
                             className="btn animate-text bg-gradient-to-r from-primary to-secondary border-none rounded-lg text-center w-[80%]"
                         >
-                            Add Job
+                            <button onClick={clickAdd}>Add Job</button>
                         </NavLink>
 
                         <NavLink
@@ -62,9 +84,7 @@ const HeaderDashboard = () => {
                         </NavLink>
                         <NavLink
                             to="/"
-                            onClick={() => {
-                                setIsLoggedIn(false);
-                            }}
+                            onClick={logout}
                             className="hover:text-secondary flex items-center gap-2 mt-10"
                         >
                             <i className="text-xl">
